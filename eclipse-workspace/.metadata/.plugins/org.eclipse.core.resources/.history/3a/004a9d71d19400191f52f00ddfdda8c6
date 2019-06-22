@@ -1,0 +1,39 @@
+package HashMapHeap;
+
+import java.util.*;
+
+public class happy_number {
+
+    public static boolean isHappy(int n) {
+        // write your code here.
+    	HashSet<Integer> hs = new HashSet<Integer>();
+    	int sum = 0;
+    	//while(sum!=1&&!hs.contains(sum))
+    	{
+    		int rem = n%10;
+    		int quo = n/10;
+    		//int num = n;
+    		sum = 0;
+    		while(quo!=0)
+    		{System.out.println(rem);
+    			sum +=rem*rem;
+    			quo = quo/10;
+    			rem = quo%10;
+    			
+    		}
+    	}
+    	return true;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int N = sc.nextInt();
+
+        if (isHappy(N)) {
+            System.out.println("Happy");
+        } else {
+            System.out.println("Not Happy");
+        }
+    }
+}

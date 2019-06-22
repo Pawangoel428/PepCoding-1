@@ -4064,3 +4064,13 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp
 
 !ENTRY org.eclipse.egit.core 1 0 2019-06-22 13:45:10.825
 !MESSAGE Using Apache MINA sshd as ssh client.
+!SESSION 2019-06-22 14:13:51.422 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=1.8.0_212
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -data /home/ubuntu/Documents/pepcoding/eclipse-workspace -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.core 1 0 2019-06-22 14:13:54.861
+!MESSAGE Using Apache MINA sshd as ssh client.
