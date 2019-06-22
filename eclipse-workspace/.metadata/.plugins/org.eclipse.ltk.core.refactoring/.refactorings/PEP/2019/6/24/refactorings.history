@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;PEP/src/Extra/Stack_using_Queue.java&apos; to &apos;Stack_using_Queue_Push_Effective.java&apos;" description="Rename resource &apos;Stack_using_Queue.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/Extra/Stack_using_Queue.java" name="Stack_using_Queue_Push_Effective.java" stamp="1560394858693" updateReferences="true"/>
+</session>

@@ -1,0 +1,54 @@
+package HashMapHeap;
+
+import java.util.*;
+
+import javax.xml.crypto.dsig.spec.HMACParameterSpec;
+
+public class two_sum {
+	 public static ArrayList<Integer> twoSum(ArrayList<Integer> nums, int target) {
+	 	 //Write your code here
+		 HashMap<Integer, Integer> indx = new HashMap<Integer, Integer>();
+		 for(int i=0;i<nums.size();i++)
+		 {
+			 indx.put(i, nums.get(i));
+		 }
+		 Collections.sort(nums);
+		 int i=0,j=nums.size()-1;
+		 ArrayList<Integer> arr = new ArrayList<Integer>();
+		 while(i<j)
+		 {	int sum = nums.get(i)+nums.get(j);
+		
+		 if(sum==target)
+			 {//System.out.println(i+" "+j+" "+nums.get(i)+" "+nums.get(j));
+			 i++;
+			 
+			 arr.add(indx.remove(nums.get(i)));
+			 
+			 arr.add(indx.remove(nums.get(j)));
+			 }
+			 else if(sum<target)
+			 {i++;}
+			 else
+				 j--;
+			 //while(nums.get(i)==nums.get(i+1)) i++;
+			 //while(nums.get(j)==nums.get(j-1)) j++;
+			 
+		 }
+		 return arr;
+	 	 }
+	 
+	 	 //Don't make any changes here.
+	 	 public static void main(String[] args) {
+	 
+	 	 	 Scanner s = new Scanner(System.in);
+	 	 	 ArrayList<Integer> nums = new ArrayList<Integer>();
+	 	 	 int n = s.nextInt();
+	 	 	 for (int i = 0; i < n; i++) {
+	 	 	 	 nums.add(s.nextInt());
+	 	 	 }
+	 	 	 int target = s.nextInt();
+	 	 	 System.out.println(twoSum(nums, target));
+	 
+	 	 }
+	 	 
+}

@@ -1,0 +1,36 @@
+package HashMapHeap;
+
+import java.util.*;
+
+public class subdomain_visit_count {
+
+	 public static List<String> subdomainVisits(String[] cpdomains) {
+	 	 //Write your code here
+		 		for (int i = 0; i < cpdomains.length; i++) {
+					//System.out.println(cpdomains[i]);
+					String h[] = cpdomains[i].split(" ");
+					int count =Integer.parseInt(h[0]);
+					String str = h[1];
+//					String str[] = h[1].split(".");
+					System.out.println(str);
+					System.out.println(count);
+//					for(int j=0;j<str.length;j++)
+//						System.out.println(str[j]);
+				}
+		 return null;
+	 	 	 }
+	 
+	 	 //Don't make any changes here
+	 	 public static void main(String[] args) {
+	 
+	 	 	 Scanner s = new Scanner(System.in);
+	 	 	 int n = Integer.parseInt(s.nextLine());
+	 	 	 String[] cpd = new String[n];
+	 	 	 for (int i = 0; i < cpd.length; i++) {
+	 	 	 	 cpd[i] = s.nextLine();
+	 	 	 }
+	 	 	 List<String> ans = subdomainVisits(cpd);
+	 	 	 Collections.sort(ans);
+	 	 	 System.out.println(ans);
+	 	 }
+}

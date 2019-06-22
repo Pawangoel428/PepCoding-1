@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.internal.QuickAccess">
+		<item key="dialogHeight" value="666"/>
+		<item key="dialogWidth" value="614"/>
+		<list key="orderedElements">
+			<item value="preferences"/>
+			<item value="org.eclipse.ui.views.ResourceNavigator"/>
+		</list>
+		<list key="orderedProviders">
+			<item value="org.eclipse.ui.actions"/>
+			<item value="org.eclipse.e4.ui.parts"/>
+		</list>
+		<list key="textEntries">
+			<item value="2"/>
+			<item value="1"/>
+		</list>
+		<list key="textArray">
+			<item value="pre"/>
+			<item value="p"/>
+			<item value="naviga"/>
+		</list>
+	</section>
+	<section name="ImportExportAction">
+		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
+		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
+			<item value="org.eclipse.ui.Basic"/>
+		</list>
+	</section>
+	<section name="NewWizardAction">
+	</section>
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item key="DIALOG_X_ORIGIN" value="321"/>
+		<item key="DIALOG_Y_ORIGIN" value="2"/>
+	</section>
+</section>

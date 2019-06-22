@@ -1,0 +1,44 @@
+package HashMapHeap;
+
+import java.util.Scanner;
+
+public class school_assembly {
+	static int  max_ref;
+    public static void minTransfer(int[] heights) {
+        // Write your code here
+    	int maxIncreasingSubsequence  = MaxSubSequence(heights,heights.length);
+    	System.out.println(heights.length-maxIncreasingSubsequence);
+    }
+
+    private static int MaxSubSequence(int[] arr, int n) {
+		if(n==1)
+			return 1;
+		
+		   int max_ending_here=1,res;
+	        for (int i = 1; i < n; i++) 
+	        { 
+	            res = MaxSubSequence(arr, i); 
+	            if (arr[i-1] < arr[n-1] && res + 1 > max_ending_here) 
+	                max_ending_here = res + 1; 
+	        } 
+	  
+	        
+	        if (max_ref < max_ending_here) 
+	           max_ref = max_ending_here; 
+	  
+	        // Return length of LIS ending with arr[n-1] 
+	        return max_ending_here; 
+		
+	}
+
+	//Dont make changes here
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
+        int n = scn.nextInt();
+        int[] heights = new int[n];
+        for (int i = 0; i < n; i++) {
+            heights[i] = scn.nextInt();
+        }
+        minTransfer(heights);
+    }
+}

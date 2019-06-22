@@ -1,0 +1,35 @@
+package stackQueue;
+
+import java.util.*;
+
+public class left_right_smaller {
+
+	static int findMaxDiff(int A[], int N)
+    { // Write your code here
+		
+		int maxDiff = Integer.MIN_VALUE;
+		Stack<Integer> st1 = new Stack<Integer>();
+		Stack<Integer> st2 = new Stack<Integer>();
+		int arr[] = new int[N];
+		for(int i=0;i<A.length;i++)
+		{
+			while(!st1.isEmpty()&&st1.peek()>=A[i])
+				{st1.pop();}
+			if(st1.isEmpty())
+				System.out.println("-1 ");
+			else
+				System.out.println(st1.peek());
+			st1.push(A[i]);
+		}
+		return maxDiff;
+    }
+
+	 // Dont make changes here
+    public static void main(String[] args){
+    	 Scanner sc=new Scanner(System.in);
+    	 int N=sc.nextInt();
+    	 int[] A=new int[N];
+    	 for(int i=0;i<N;i++)A[i]=sc.nextInt();
+    	 System.out.println(findMaxDiff(A, N));
+    }
+}

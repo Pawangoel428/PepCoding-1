@@ -1,0 +1,26 @@
+package HashMapHeap;
+
+import java.io.*;
+import java.util.*;
+public class distinct_elements_in_a_stream {
+
+	 public static void print(String[] arr) throws IOException {
+	 	 //  Write your code here
+	 	 	 	 HashSet<Character> hs = new HashSet<Character>();
+	 	 	 	 for (int i = 0; i < arr.length; i++) {
+					System.out.println(arr[i].split(" ",-1));
+				}
+	 	 }
+	 	 //Don't make any changes here
+	 	 public static void main(String[] args) throws IOException {
+	 	 	 BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	 	 	 int n = Integer.parseInt(br.readLine());
+	 	 	 String[] arr = new String[n];
+	 	 	 for (int i = 0; i < n; i++) {
+	 	 	 	 arr[i] = br.readLine();
+	 	 	 }
+	 
+	 	 	 print(arr);
+	 
+	 	 }
+}
