@@ -1,0 +1,34 @@
+package HashMapHeap;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class find_first_repeated_character {
+
+	 public static char solve(String s) {
+         // write your code here.
+         HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+         for(int i=0;i<s.length();i++)
+         {
+        	 int freq = hm.getOrDefault(s.charAt(i), 0);
+        	 hm.put(s.charAt(i), freq+1);
+         }
+         for(int i=0;i<s.length();i++)
+         {
+        	 if(hm.get(s.charAt(i))==1)
+        	 {
+        		 return s.charAt(i);
+        	 }
+         }
+         
+		 return '$';
+     }
+ 
+     public static void main(String[] args) {
+ 
+         Scanner sc = new Scanner(System.in);
+         String str = sc.next();
+         System.out.println(solve(str));
+ 
+     }
+}

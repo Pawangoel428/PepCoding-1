@@ -17,7 +17,7 @@ public class group_shifted_strings {
 		             key += diff < 0 ? diff + 26 : diff;
 		             key += ",";
 		         }
-		         //System.out.println(key);
+		         System.out.println(key);
 				String st = key;
 				
 				if(hm.containsKey(st))
@@ -34,14 +34,14 @@ public class group_shifted_strings {
 					hm.put(st, ar);
 					
 				}
-//				for(int j=0;j<ch.length;j++)
-//				System.out.print(ch[j]);
+				for(int j=0;j<ch.length;j++)
+				System.out.print(ch[j]);
 			}
 			ArrayList<List<String>> ls = new ArrayList<List<String>>();
 			for (Map.Entry<String,ArrayList<String>> entry : hm.entrySet())  
 			{
-//				System.out.println("Key = " + entry.getKey().charAt(1) + 
-//	                             ", Value = " + entry.getValue());
+				System.out.println("Key = " + entry.getKey().charAt(1) + 
+	                             ", Value = " + entry.getValue());
 			ls.add(entry.getValue());
 			}
 			return ls;
