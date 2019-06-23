@@ -1,0 +1,24 @@
+package HashMapHeap;
+
+import java.util.Scanner;
+
+public class notebandi {
+
+	 public static void removeString(String str, String m, String n) {
+	 	 //Write your code here
+		 boolean ar [] = new boolean[str.length()];
+		 for(boolean a : ar)
+			 System.out.println(a);
+	     }
+	 
+	 
+	 
+	     //Dont make chsnges here
+	     public static void main(String[] args) {
+	         Scanner sc = new Scanner(System.in);
+	         String str = sc.next();
+	         String m = sc.next();
+	         String n = sc.next();
+	         removeString(str, m, n);
+	     }
+}
