@@ -1,0 +1,47 @@
+package HashMapHeap2;
+
+import java.util.Scanner;
+
+public class count_of_substrings_containing_k_ones {
+
+	  public static void main (String[] args) 
+	     { 
+	         Scanner scn = new Scanner(System.in);
+	         String s = scn.next(); 
+	         int K = scn.nextInt(); 
+	           
+	         System.out.println( 
+	             countOfSubstringWithKOnes(s, K)); 
+	     } 
+	     // -----------------------------------------------------
+	 	 // This is a functional problem. Only this function has to be written.
+	 	 // This function takes as input a string and an integer k.
+	 	 // It should return required integer value.
+	 
+	     static int countOfSubstringWithKOnes(String s, int K) 
+	     { 
+	 	 	 //Write your code here
+	    	int one =0,count = 0;
+	    	for(int i=0,j=0;i<s.length();i++)
+	    	{
+	    		while(one!=K+1&&j<s.length())
+	    		{
+	    			if(s.charAt(j)=='1')
+	    				one++;
+	    			j++;
+	    		}
+	    		if(one==K+1)
+	    			count++;
+	    		//count++;
+	    		while(one!=K-1&&i<s.length())
+	    		{
+	    			if(s.charAt(i)=='1')
+	    				one--;
+	    			
+	    			count++;
+	    		}
+	    	}
+	    	System.out.println(count);
+	    	 return 0;
+	     } 
+}
