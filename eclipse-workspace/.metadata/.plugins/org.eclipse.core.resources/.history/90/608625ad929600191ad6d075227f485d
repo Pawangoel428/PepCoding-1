@@ -1,0 +1,34 @@
+package test3;
+
+import java.util.Scanner;
+
+public class Bazooka {
+
+	public static void main(String[] args) {
+		Scanner scn = new Scanner(System.in);
+		int n = scn.nextInt();
+		StringBuilder str [] = new StringBuilder[n];
+		for(int i=0;i<n;i++)
+		{
+			String s = scn.next();
+			str[i] = new StringBuilder(s);
+			System.out.println(str[i]);
+		}
+		int count =0;
+		for(int i=0;i<n;i++)
+		{
+			for(int j=i;j<n;j++)
+				{
+				StringBuilder first = str[i].append(str[j]);
+				StringBuilder last  = str[j].append(str[i]);
+				if(first.equals(first.reverse()))
+					count++;
+				else if(last.equals(first.reverse()))
+					count++;
+				}
+		}
+		System.out.println(count);
+	}
+
+	
+}

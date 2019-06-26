@@ -1,0 +1,54 @@
+package test3;
+
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class smallest_window_all_characters {
+
+	public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+		Scanner scn = new Scanner(System.in);
+		String str1 = scn.next();
+		String str2 = scn.next();
+		
+		System.out.println(smallestwin(str1,str2));
+    }
+
+	private static String smallestwin(String str1, String str2) {
+		// TODO Auto-generated method stub
+		HashMap<Character, Integer> hm = new HashMap<Character, Integer>();
+		for(int i=0;i<str2.length();i++)
+		{
+			int freq = hm.getOrDefault(str2.charAt(i), 0);
+			hm.put(str2.charAt(i), freq+1);
+		}
+		HashMap<Character, Integer> temp = new HashMap<Character, Integer>();
+		int mini = 0 ,minj= 0 ,len = Integer.MAX_VALUE;
+		for(int i=0,j=0;j<str1.length()&&i<j;i++)
+		{
+			while(temp.size()!=hm.size())
+			{
+				int freq = temp.getOrDefault(str1.charAt(j), 0);
+				if(hm.containsKey(str1.charAt(j)))
+				{
+					hm.put(str1.charAt(j), freq+1);
+					j++;
+				}
+			}
+			if(j-i+1<len)
+			{
+				mini =i;
+				minj = j;
+				len = j-i+1;
+				System.out.println(str1.substring(i,j));
+			}
+			while(temp.containsKey(str1.charAt(j)))
+			{
+				i++;
+				System.out.println(str1.charAt(i));
+			}
+			
+		}
+		return null;
+	}
+}
