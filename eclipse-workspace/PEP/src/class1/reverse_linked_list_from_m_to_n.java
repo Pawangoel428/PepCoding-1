@@ -11,47 +11,56 @@ public class reverse_linked_list_from_m_to_n {
 
     public static Node reverseBetween(Node head, int m, int n) {
         // write your code here
-    	Node prev = head, curr = head.next,next;
-    	int count = 1 ;
-    	Node start1 = prev,start2 = curr;
-    	
-    	
-    	while(curr!=null&& count!=n)
-    	{
-    		
-    		if(count == m-1 )
-    		{	if(m ==1)
-			    	{	Node temp = curr.next;
-			    		curr.next = prev;
-			    		prev.next = null;
-			    		prev = curr;
-			    		curr =temp;
-			    		
-			    	}
-    			start1 = prev;
-    			start2 = curr;
-    			while(count!=n)
-    			{
-    				next = curr.next;
-    				curr.next = prev;
-    				prev = curr;
-    				curr = next;
-    				count++;
-    				//System.out.println(curr.data);
-    			}
-    			start1.next = prev;
-    			start2.next = curr;
-    			break;
-    		}
-    		prev = curr;
-    		if(curr!=null)
-    			curr = curr.next;
-    		count++;
-    	}
-    	//display(head);
-    	return head;
+    	 if(m==n) return head;
+    	 
+    	    Node prev = null;//track (m-1)th node
+    	    Node first = new Node(0);//first's next points to mth
+    	    Node second = new Node(0);//second's next points to (n+1)th
+    	 
+    	    int i=0;
+    	    Node p = head;
+    	    while(p!=null){
+    	        i++;
+    	        if(i==m-1){
+    	            prev = p;
+    	        }
+    	 
+    	        if(i==m){
+    	            first.next = p;
+    	        }
+    	 
+    	        if(i==n){
+    	            second.next = p.next;
+    	            p.next = null;
+    	        }
+    	 
+    	        p= p.next;
+    	    }
+    	    if(first.next == null)
+    	        return head;
+    	 
+    	    // reverse list [m, n]    
+    	    Node p1 = first.next;
+    	    Node p2 = p1.next;
+    	    p1.next = second.next;
+    	 
+    	    while(p1!=null && p2!=null){
+    	        Node t = p2.next;
+    	        p2.next = p1;
+    	        p1 = p2;
+    	        p2 = t;
+    	    }
+    	 
+    	    //connect to previous part
+    	    if(prev!=null)
+    	        prev.next = p1;
+    	    else
+    	        return p1;
+    	 
+    	    return head;
     }
 
+    
     // -----------------------------------------------------
 
     public static void main(String[] args) {

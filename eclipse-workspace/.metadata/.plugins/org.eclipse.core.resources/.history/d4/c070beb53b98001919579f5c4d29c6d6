@@ -1,0 +1,44 @@
+package ArraysString;
+
+import java.util.*;
+
+public class reveal_cards_in_increasing_order {
+
+	public static int[] deckRevealedIncreasing(int[] deck) {
+	 	 //write code here
+		int n = deck.length;
+		Arrays.sort(deck);
+		
+		Queue<Integer> q = new LinkedList<Integer>();
+		for(int i=0;i<n;i++)
+			q.add(i);
+		
+		int reveal[] = new int[n];
+		int i = 0;
+		while(!q.isEmpty())
+		{
+			System.out.println(q.remove());
+//		reveal[i] = q.remove();
+		q.add(q.remove());
+		}
+		for(i=0;i<n;i++)
+			System.out.println(reveal[i]);
+		return null;
+	 }
+	 // 7 17 13 11 2 3 5 7-----------------------------------------------------
+
+	 public static void main(String[] args) {
+	 	 Scanner sc = new Scanner(System.in);
+
+	 	 int n = sc.nextInt();
+	 	 int[] arr = new int[n];
+	 	 for (int i = 0; i < n; i++) {
+	 	 	 arr[i] = sc.nextInt();
+	 	 }
+
+	 	 int[] ans = deckRevealedIncreasing(arr);
+	 	 for (int val : arr) {
+	 	 	 System.out.print(val + " ");
+	 	 }
+	 }
+}

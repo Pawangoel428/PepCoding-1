@@ -1,0 +1,65 @@
+package ArraysString;
+
+import java.util.Scanner;
+
+public class masking_personal_information {
+
+	 public static void main(String[] args) {
+ 	 	 Scanner scn = new Scanner(System.in);
+ 	 	 String str = scn.next();
+ 	 	 System.out.print(maskPII(str));
+ 	 }
+ 
+ 	 // -----------------------------------------------------
+ 	 // This is a functional problem. Only this function has to be written.
+ 	 // This function takes as input a string
+ 	 // It should return required output.
+ 
+ 	 public static String maskPII(String S) {
+ 	 	 // Write your code here
+ 		 String str = new String();
+ 		 if(S.contains("@"))
+ 		 {
+ 			 S = S.toLowerCase();
+ 			 int a = S.indexOf('@');
+ 			 str = S.charAt(0)+"*****"+S.charAt(a-1)+S.substring(a, S.length());
+ 			 
+ 		 }
+ 		 else if(!S.contains("-"))
+ 		 {
+ 			 int num = S.length();
+ 			 str = S.substring(num-4, num);
+ 			 int count = 0;
+ 			 for(int i = num -5;i>=0;i--)
+ 			 {
+ 				 if(count%4==0)
+ 					 str  = '-'+str;
+ 				else if(S.charAt(i)=='+')
+					 str = '+'+str;
+				 else if(Character.isDigit(S.charAt(i)))
+					 str = "*"+str;
+ 				 count++;
+ 			 }
+ 			
+ 		 }
+ 		 else
+ 		 {
+ 			int num = S.length();
+			 str = S.substring(num-4, num);
+			 
+			 for(int i = num -5;i>=0;i--)
+			 {
+				 if(S.charAt(i)=='-')
+					 str  = '-'+str;
+				 else if(S.charAt(i)=='+')
+					 str = '+'+str;
+				 else if(Character.isDigit(S.charAt(i)))
+					 str = "*"+str;
+			
+			 }
+			 
+ 		 }
+ 		 
+ 		 return str;
+ 	 }
+}

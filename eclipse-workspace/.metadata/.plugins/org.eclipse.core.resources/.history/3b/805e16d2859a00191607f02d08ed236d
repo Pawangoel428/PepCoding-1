@@ -1,0 +1,135 @@
+package class1;
+
+import java.util.*;
+
+public class two_linked_list_intersection {
+
+	  public static Node findIntersection(Node list1, Node list2) {
+          // write your code here
+		  int lengthOfList1 = 0;
+			int lengthOfList2 = 0;
+			Node temp1=list1, temp2=list2;
+			if (temp1 == null || temp2 == null)
+				return null;
+	 
+			// Find the length of both linked list
+			while(temp1 != null){
+				lengthOfList1++;
+				temp1 = temp1.next;
+			}
+			while(temp2 !=null){
+				lengthOfList2++;
+				temp2 = temp2.next;
+			}
+	 
+			int difference = 0;
+			Node ptr1=list1;
+			Node ptr2=list2;
+	 
+			// Find bigger linked list and iterate upto the different between two linked list.
+			if(lengthOfList1 > lengthOfList2){
+				difference = lengthOfList1-lengthOfList2;
+				int i=0;
+				while(i<difference){
+					ptr1 = ptr1.next;
+					i++;
+				}
+			}else{
+				difference = lengthOfList2-lengthOfList1;
+				int i=0;
+				while(i<difference){
+					ptr2 = ptr2.next;
+					i++;
+				}
+			}
+	 
+			// Iterate over both linked list and find the common node
+			while(ptr1 != null && ptr2 != null){
+				if(ptr1 == ptr2){
+					display(ptr1);
+					return ptr1;
+				}
+				ptr1 = ptr1.next;
+				ptr2 = ptr2.next;
+			}
+	 
+			return new Node(0);
+      }
+  
+      // -----------------------------------------------------
+      
+  
+      public static void main(String[] args) {
+          Scanner sc = new Scanner(System.in);
+          int n1 = sc.nextInt();
+          int a1 = sc.nextInt();
+          head = insert(head, a1);
+  
+          for (int i = 1; i < n1; i++) {
+              int a = sc.nextInt();
+              head = insert(head, a);
+          }
+          
+          int n2 = sc.nextInt();
+          int a2 = sc.nextInt();
+          head2 = insert(head2, a2);
+          
+          for (int i = 1; i < n2; i++) {
+              int a = sc.nextInt();
+              head2 = insert(head2, a);
+          }
+          
+  
+          display(head2);
+          head3 = findIntersection(head, head2);
+          display(head3);
+  
+      }
+      
+      
+      //Class declaration for a Node of the Linked List
+      static class Node {
+          int data;
+          Node next;
+  
+          public Node(int data) {
+              this.data = data;
+              this.next = null;
+          }
+  
+      }
+  
+      static Node head;
+  
+      static Node head2;
+  
+      static Node head3;
+  
+      /*
+       * Input Parameters: head: head of the linked list in which a new node is to
+       * be inserted. data: the data value of the node which is to be inserted.
+       * 
+       * Return Value: head of the linked list in which the node is inserted
+       */
+      public static Node insert(Node head, int data) {
+  
+          if (head == null) {
+              return new Node(data);
+          }
+  
+          head.next = insert(head.next, data);
+          return head;
+      }
+  
+      /*
+       * Input Parameters: head: head of the linked list in which is to be
+       * displayed.
+       * 
+       * Return Value: null
+       */
+      public static void display(Node head) {
+          for (Node node = head; node != null; node = node.next) {
+              System.out.print(node.data + " ");
+          }
+      }
+}

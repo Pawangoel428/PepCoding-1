@@ -1,0 +1,32 @@
+package ArraysString;
+
+import java.util.*;
+import java.util.Scanner;
+
+public class reveal_cards_in_increasing_order {
+
+	public static int[] deckRevealedIncreasing(int[] deck) {
+	 	 //write code here
+		Arrays.sort(deck);
+		for (int i = 0; i < deck.length; i++) {
+			System.out.println(deck[i]);
+		}
+		return null;
+	 }
+	 // -----------------------------------------------------
+
+	 public static void main(String[] args) {
+	 	 Scanner sc = new Scanner(System.in);
+
+	 	 int n = sc.nextInt();
+	 	 int[] arr = new int[n];
+	 	 for (int i = 0; i < n; i++) {
+	 	 	 arr[i] = sc.nextInt();
+	 	 }
+
+	 	 int[] ans = deckRevealedIncreasing(arr);
+	 	 for (int val : arr) {
+	 	 	 System.out.print(val + " ");
+	 	 }
+	 }
+}

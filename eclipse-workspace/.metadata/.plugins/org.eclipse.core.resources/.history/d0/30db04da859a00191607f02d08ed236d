@@ -1,0 +1,123 @@
+package class1;
+
+import java.util.*;
+
+public class two_linked_list_intersection {
+
+	  public static Node findIntersection(Node head1, Node head2) {
+      
+		  Node result = null; 
+	        Node t1 = head1; 
+	  
+	        // Traverse list1 and search each element of it in list2. 
+	        // If the element is present in list 2, then insert the 
+	        // element to result 
+	        while (t1 != null) 
+	        { 
+	            if (isPresent(head2, t1.data)) 
+	                push(t1.data); 
+	            t1 = t1.next; 
+	        }
+	        return head;
+	  }
+	  static void push(int new_data) 
+	    { 
+	        /* 1 & 2: Allocate the Node & 
+	                  Put in the data*/
+	        Node new_node = new Node(new_data); 
+	  
+	        /* 3. Make next of new Node as head */
+	        new_node.next = head; 
+	  
+	        /* 4. Move the head to point to new Node */
+	        head = new_node; 
+	    } 
+	  
+	 static boolean isPresent (Node head, int data) 
+	    { 
+	        Node t = head; 
+	        while (t != null) 
+	        { 
+	            if (t.data == data) 
+	                return true; 
+	            t = t.next; 
+	        } 
+	        return false; 
+	    } 
+      // -----------------------------------------------------
+      
+  
+      public static void main(String[] args) {
+          Scanner sc = new Scanner(System.in);
+          int n1 = sc.nextInt();
+          int a1 = sc.nextInt();
+          head = insert(head, a1);
+  
+          for (int i = 1; i < n1; i++) {
+              int a = sc.nextInt();
+              head = insert(head, a);
+          }
+          
+          int n2 = sc.nextInt();
+          int a2 = sc.nextInt();
+          head2 = insert(head2, a2);
+          
+          for (int i = 1; i < n2; i++) {
+              int a = sc.nextInt();
+              head2 = insert(head2, a);
+          }
+          
+  
+          display(head2);
+          head3 = findIntersection(head, head2);
+          display(head3);
+  
+      }
+      
+      
+      //Class declaration for a Node of the Linked List
+      static class Node {
+          int data;
+          Node next;
+  
+          public Node(int data) {
+              this.data = data;
+              this.next = null;
+          }
+  
+      }
+  
+      static Node head;
+  
+      static Node head2;
+  
+      static Node head3;
+  
+      /*
+       * Input Parameters: head: head of the linked list in which a new node is to
+       * be inserted. data: the data value of the node which is to be inserted.
+       * 
+       * Return Value: head of the linked list in which the node is inserted
+       */
+      public static Node insert(Node head, int data) {
+  
+          if (head == null) {
+              return new Node(data);
+          }
+  
+          head.next = insert(head.next, data);
+          return head;
+      }
+  
+      /*
+       * Input Parameters: head: head of the linked list in which is to be
+       * displayed.
+       * 
+       * Return Value: null
+       */
+      public static void display(Node head) {
+          for (Node node = head; node != null; node = node.next) {
+              System.out.print(node.data + " ");
+          }
+      }
+}

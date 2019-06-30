@@ -1,0 +1,33 @@
+package ArraysString;
+
+import java.util.Scanner;
+
+public class Nesting_Array {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int arr[] = new int[n];
+		for(int i=0;i<n;i++)
+		arr[i] = s.nextInt();
+		boolean visited[] = new boolean[n];
+		for(int i=0;i<n;i++)
+			visited[i] = false;
+		int max=0;
+		for(int i=0;i<n;i++)
+		{
+			int length=1;
+			int j =arr[i];
+			while(!visited[j])
+			{
+				 visited[j] = true;
+				  j = arr[j]-1;
+				
+				 System.out.println(arr[j]+"<<<<<<<");
+				 
+			}
+			System.out.println(":::");
+		}
+		
+	}
+}

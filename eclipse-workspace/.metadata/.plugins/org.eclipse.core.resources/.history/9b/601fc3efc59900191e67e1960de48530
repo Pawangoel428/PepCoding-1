@@ -1,0 +1,46 @@
+package ArraysString;
+
+import java.util.*;
+
+public class count_binary_substrings {
+
+    public static void main(String[] args){
+        Scanner scn= new Scanner (System.in);
+        String s=scn.next();
+	 	 System.out.print(countBinarySubstrings(s));
+	 }
+
+	 // -----------------------------------------------------
+	 // This is a functional problem. Only this function has to be written.
+	 // This function takes as input a string
+	 // It should return the required output
+
+    public static int countBinarySubstrings(String s) {
+	 	 //write code here
+    	int i = 0,j=0,count = 0,prevSum = 0,currSum = 0;
+    	
+    	while(j<s.length())
+    	{
+    		prevSum= 0;
+    		while(j<s.length()-1&&s.charAt(j)==s.charAt(j+1))
+    		{
+    			j++;
+    			prevSum++;
+    		}
+    		//int pointChange  =j+1;
+    		i = j;
+    		while(i<s.length()-1&&s.charAt(i)==s.charAt(i+1))
+    		{
+    			currSum++;
+    			i++;
+    			if(currSum<=prevSum)
+    				count++;
+    			else
+    				break;
+    		}
+    		j = j+1;
+    	}
+    	
+    	return 0;
+	 }
+}
