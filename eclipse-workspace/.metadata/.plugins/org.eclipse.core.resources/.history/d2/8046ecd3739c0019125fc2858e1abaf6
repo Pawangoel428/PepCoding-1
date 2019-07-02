@@ -1,0 +1,58 @@
+package ArraysString;
+
+import java.util.Scanner;
+
+public class max_chunks_to_make_sorted_ii {
+
+	 public static void main(String[] args) {
+ 	 	 Scanner scn = new Scanner(System.in);
+ 	 	 int n = scn.nextInt();
+ 	 	 int[] a = new int[n];
+ 	 	 for (int i = 0; i < n; i++) {
+ 	 	 	 a[i] = scn.nextInt();
+ 	 	 }
+ 	 	 System.out.println(maxChunksToSorted(a));
+ 	 }
+ 
+ 	 // -----------------------------------------------------
+ 	 // This is a functional problem. Only this function has to be written
+ 	 // This function takes as input an array
+ 	 // It should return required output
+ 
+ 	 public static int maxChunksToSorted(int[] arr) {
+ 	 	 // Write your code here
+ 		 
+ 		 int count = 0;
+ 		 int MaxArr[] = new int[arr.length];
+ 		 int MinArr[] = new int[arr.length];
+ 		 MaxArr[0] =  Integer.MIN_VALUE;
+ 		 MinArr[arr.length-1] = arr[arr.length-1];
+ 		 for(int i=1;i<arr.length;i++)
+ 		 {
+ 			 if(arr[i-1]>MaxArr[i-1])
+ 			 {
+ 				 MaxArr[i] = arr[i];
+ 			 }
+ 			 else
+ 				 MaxArr[i] = MaxArr[i-1];
+ 			 
+ 			 System.out.println(arr[i]+" "+MaxArr[i]);
+ 		 }
+ 		for(int i=arr.length-2;i>=0;i--)
+		 {
+			 if(arr[i]<MinArr[i+1])
+			 {
+				 MinArr[i] = arr[i];
+			 }
+			 else
+				 MinArr[i] = MinArr[i+1];
+			 
+			 System.out.println(MinArr[i]);
+		 }
+ 		
+ 		for(int  i =0 ;i<arr.length;i++)
+ 			if(MaxArr[i]<MinArr[i])
+ 				count++;
+ 		 return count;
+ 	 }
+}

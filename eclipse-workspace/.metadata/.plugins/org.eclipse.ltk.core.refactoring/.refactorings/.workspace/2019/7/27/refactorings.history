@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete resource &apos;PEP/src/ArraysString/integer_to_roman.java&apos;" deleteContents="false" description="Delete resource &apos;PEP/src/ArraysString/integer_to_roman.java&apos;" element1="/PEP/src/ArraysString/integer_to_roman.java" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1561956496187"/>
+</session>

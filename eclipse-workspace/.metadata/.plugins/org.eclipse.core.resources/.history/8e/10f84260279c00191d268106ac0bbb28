@@ -1,0 +1,61 @@
+package ArraysString;
+
+import java.util.Scanner;
+
+public class add_bold_tag_in_string {
+
+	 
+	 public static void main(String[] args) {
+	 	 Scanner scn = new Scanner(System.in);
+	 	 String s = scn.next();
+	 	 int n = scn.nextInt();
+	 	 String[] dict = new String[n];
+	 	 for (int i = 0; i < n; i++) {
+	 	 	 dict[i] = scn.next();
+	 	 }
+	 	 System.out.println(addBoldTag(s, dict));
+	 }
+
+	 // -----------------------------------------------------
+	 // This is a functional problem. Only this function has to be written.
+	 // This function takes as input an array of strings and a string
+	 // It should return required output.
+	 public static String addBoldTag(String s, String[] dict) {
+	 	 // Write your code here
+		 
+		 boolean visited[] = new boolean[s.length()];
+		 for(boolean b : visited)
+			 b = false;
+		 for(int i=0;i<dict.length;i++)
+		 {
+			 int j = s.indexOf(dict[i]);
+			 for(int k = j;k<j+dict[i].length();k++)
+			 {
+				 visited[k] = true;
+				 System.out.println(s.charAt(k));
+			 }
+		 }
+		 for(boolean b : visited)
+			 System.out.println(b);
+		 String str = new String();
+		 if(visited[0])
+			 str = "<b>";
+		 for(int i=0;i<s.length();i++)
+		 {
+			 str += s.charAt(i);
+			 if(i+1<s.length()&&visited[i]&&!visited[i+1])//true false
+			 {
+				 str+="</b>";
+			 }
+			 if(i+1<s.length()&&!visited[i]&&visited[i+1])//true false
+			 {
+				 str+="<b>";
+			 } 
+			 
+		 }
+		 if(visited[s.length()-1])
+			 str+="</b>";
+		 System.out.println(str);
+		 return null;
+	 }
+}

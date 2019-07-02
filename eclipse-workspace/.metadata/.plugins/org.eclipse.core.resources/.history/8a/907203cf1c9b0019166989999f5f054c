@@ -1,0 +1,70 @@
+package ArraysString;
+
+import java.util.*;
+import java.util.Scanner;
+
+public class integer_to_roman {
+
+	public String intToRoman(int num) {
+		Stack<List<String>> maps = new Stack<>();
+
+		String[] onesMap = { "I", "V" };
+		String[] tensMap = { "X", "L" };
+		String[] hundredsMap = { "C", "D" };
+		String[] thousandsMap = { "M" };
+		String[] placeholder = { "DOESNT MATTER" };
+
+		maps.add(Arrays.asList(placeholder));
+		maps.add(Arrays.asList(thousandsMap));
+		maps.add(Arrays.asList(hundredsMap));
+		maps.add(Arrays.asList(tensMap));
+		maps.add(Arrays.asList(onesMap));
+
+		StringBuilder b = new StringBuilder();
+
+		int workingNum = num;
+		while (workingNum > 0) {
+			int leastSig = workingNum % 10;
+			b.insert(0, getSymbols(leastSig, maps.pop(), maps.peek().get(0)));
+			workingNum = workingNum / 10;
+		}
+
+		return b.toString();
+	}
+
+	private String getSymbols(int num, List<String> map, String nextLevel) {
+		StringBuilder b = new StringBuilder();
+		if (num < 4) {
+			for (int i = 0; i < num; i++) {
+				b.append(map.get(0));
+			}
+		} else if (num == 4) {
+			b.append(map.get(0));
+			b.append(map.get(1));
+		} else if (num == 5) {
+			b.append(map.get(1));
+		} else if (num > 5 && num < 9) {
+			b.append(map.get(1));
+
+			int remainder = num - 5;
+			for (int i = 0; i < remainder; i++) {
+				b.append(map.get(0));
+			}
+		} else if (num == 9) {
+			b.append(map.get(0));
+			b.append(nextLevel);
+		}
+
+		return b.toString();
+	}
+	 
+	 
+	 	 //Don't make any changes here
+	 	 public static void main(String[] args) {
+	 
+	 	 	 Scanner s = new Scanner(System.in);
+	 	 	 int num = s.nextInt();
+	 	 	 System.out.println(intToRoman(num));
+	 
+	 	 }
+}
