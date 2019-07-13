@@ -1,0 +1,64 @@
+package dp;
+
+import java.util.*;
+
+public class russian_doll_envelopes {
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        int r=scn.nextInt();
+	 	 int envelopes[][]=new int[r][2];
+	 	 for(int i=0;i<r;i++){
+            for(int j=0;j<2;j++){
+                envelopes[i][j]=scn.nextInt();
+            }
+	 	 }
+	 	 System.out.println(maxEnvelopes(envelopes));
+    }
+	 // -----------------------------------------------------
+	 // This is a functional problem. Only this function has to be written.
+	 // This function takes as an integer array
+	 // It should return the required output
+
+	 public static int maxEnvelopes(int[][] envelopes) {
+	 	 //Write your code here
+		 Arrays.sort(envelopes,new Comparator<int[]>(){
+		        public int compare(int[] a, int[] b){
+		            if(a[0]!=b[0]){
+		                return a[0]-b[0];
+		            }else{
+		                return a[1]-b[1];
+		            }
+		        }
+		    });
+		 int width[] = new int[envelopes.length];
+		 for (int i = 0; i < envelopes.length; i++) {
+			System.out.println(envelopes[i][0]+" "+envelopes[i][1]);
+			width[i] = envelopes[i][1];
+		}
+		 
+		 return lengthOfLIS(width);
+	 }
+	 
+	 
+	 public static int lengthOfLIS(int[] nums) {
+	        if (nums.length == 0) {
+	            return 0;
+	        }
+	        int[] dp = new int[nums.length];
+	        dp[0] = 1;
+	        int maxans = 1;
+	        for (int i = 1; i < dp.length; i++) {
+	            int maxval = 0;
+	            for (int j = 0; j < i; j++) {
+	                if (nums[i] > nums[j]) {
+	                    maxval = Math.max(maxval, dp[j]);
+	                }
+	            }
+	            dp[i] = maxval + 1;
+	            maxans = Math.max(maxans, dp[i]);
+	        }
+	        return maxans;
+	    }
+
+}

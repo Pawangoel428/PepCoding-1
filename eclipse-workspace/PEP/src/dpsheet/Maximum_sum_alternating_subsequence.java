@@ -1,0 +1,51 @@
+package dpsheet;
+
+import java.util.Scanner;
+
+public class Maximum_sum_alternating_subsequence {
+
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		int arr[] = new int[n];
+		for(int i=0;i<n;i++)
+		{
+			arr[i] = s.nextInt();
+		}
+		System.out.println(MaxSum(arr));
+	}
+
+	private static int MaxSum(int[] arr) {
+		// TODO Auto-generated method stub
+		int n = arr.length;
+		int inc[] = new int[n];
+		int dec[] = new int[n];
+		boolean flag[] = new boolean[n];
+		for (int i = 0; i < n; i++) {
+			inc[i] = arr[i];
+			dec[i] = arr[i];
+			flag[i] = false;
+		}
+		for(int i =0;i<n;i++)
+		{
+			for (int j = 0; j <i; j++) {
+				if(arr[i]>arr[j]&&flag[j])
+				{
+					inc[i] = Integer.max(inc[i], arr[i]+dec[j]);
+					
+				}
+				else if(arr[i]<arr[j])
+				{
+					dec[i] = Integer.max(dec[i], inc[j]+arr[i]);
+					flag[i] = true;
+					
+				}
+			}
+		}
+		for (int i = 0; i < flag.length; i++) {
+		System.out.println(inc[i]+" "+dec[i]);
+			
+		}
+		return 0;
+	}
+}

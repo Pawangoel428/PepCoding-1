@@ -1,0 +1,44 @@
+package dp;
+
+import java.util.Scanner;
+
+public class minimum_path_sum {
+
+	 public static void main(String[] args) {
+         Scanner scn= new Scanner(System.in);
+         int r=scn.nextInt();
+         int c=scn.nextInt();
+         int m2[][] = new int[r][c];
+         for(int i=0;i<r;i++){
+             for(int j=0;j<c;j++){
+                 m2[i][j]=scn.nextInt();
+             }
+         }
+ 	 	 System.out.println(maze(m2));
+ 	 }
+ 	 // -----------------------------------------------------
+ 	 // This is a functional problem. Only this function has to be written.
+ 	 // This function takes as input a 2D array
+ 	 // It should return the required output
+ 
+ 	 public static int maze(int[][] m) {
+ 	 	 // Write your code here
+ 		 
+ 		 return mcpm(0,0,m.length,m[0].length,m);
+ 	 }
+	private static int mcpm(int i, int j, int length, int length2, int[][] m) {
+		// TODO Auto-generated method stub
+		if(i==length && j == length2)
+			return m[length-1][length2-1];
+		int mcstod = 0;
+		int mcihtod = Integer.MAX_VALUE;
+		int mcivtod = Integer.MAX_VALUE;
+		if(i<length)
+			mcivtod = mcpm(i+1, j, length, length2, m);
+		else if(j<length2)
+			mcihtod = mcpm(i, j+1, length, length2, m);
+		mcstod = m[i][j]+Math.max(mcihtod, mcivtod);
+		
+		return mcstod;
+	}
+}

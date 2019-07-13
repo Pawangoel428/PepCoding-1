@@ -1,0 +1,57 @@
+package dp;
+
+import java.util.Scanner;
+
+public class paint_house_version2 {
+
+	 public static void main(String[] args) {
+		 
+	     Scanner scn= new Scanner(System.in);
+	     int n=scn.nextInt();
+	     int k=scn.nextInt();
+	     int[][] costs = new int[n][k];
+	     for(int i=0;i<n;i++){
+	         for(int j=0;j<k;j++){
+	             costs[i][j]=scn.nextInt();
+	         }
+	     }
+	     System.out.println(minCostII(costs));
+	 	 }
+	 	 // -----------------------------------------------------
+	 	 // This is a functional problem. Only this function has to be written.
+	 	 // This function takes as input 2d array
+	 	 // It should return the required output
+	 
+	 	 public static int minCostII(int[][] costs) {
+	 	 	 //Write your code here
+	 		 int min=Integer.MAX_VALUE, secondMin;
+	 		 for(int i = 0 ;i<costs.length;i++)
+	 		 {
+	 			 min = Integer.min(costs[i][0], costs[i][1]);
+	 			 secondMin = Integer.max(costs[i][0], costs[i][1]);
+	 			 for(int j = 2;j<costs[0].length;j++)
+	 			 {
+	 				 if(costs[i][j]<=min)
+	 				 {
+	 					 secondMin = min;
+	 					 min  = costs[i][j];
+	 				 }
+	 				 else if(costs[i][j]<secondMin)
+	 				 {
+	 					 secondMin = costs[i][j];
+	 				 }
+	 			 }
+	 			 System.out.println(min+" "+secondMin);
+	 			 for (int j = 0; j < costs[0].length; j++) {
+					if(costs[i][j]==min)
+						costs[i][j] = costs[i][j]+secondMin;
+					else
+						costs[i][j] += min;
+				}
+	 		 }
+	 		 for (int j = 0; j < costs[0].length; j++) {
+	 		 min =Integer.min(min, costs[costs.length-1][j]); 
+	 		 }
+	 		 return min;
+	 	 }
+}

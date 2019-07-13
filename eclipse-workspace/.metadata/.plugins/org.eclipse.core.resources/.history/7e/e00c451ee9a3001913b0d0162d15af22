@@ -1,0 +1,40 @@
+package dp;
+
+import java.util.Scanner;
+
+public class minimum_number_of_deletions {
+	 public static void main(String[] args) {
+ 	 	 // TODO Auto-generated method stub
+ 	 	 Scanner scn = new Scanner(System.in);
+             String str = scn.next();
+             mindeletions(str);
+     }
+ 	 
+ 	 // -----------------------------------------------------
+ 	 // This is a functional problem. Only this function has to be written.
+ 	 // This function takes as input a string
+ 	 // It should print the required output
+ 
+     public static void mindeletions(String str){
+ 	 	 // Write your code here
+    	 boolean qb[][] = new boolean[str.length()][str.length()];
+    	 int max = 1;
+    	 for(int i=0;i<str.length();i++)
+    		 qb[i][i] = true;
+    	 
+    	 for(int i=0;i<str.length()-1;i++)
+    		 if(str.charAt(i)==str.charAt(i+1))
+    			 qb[i][i+1] = true;
+    	 
+    	 for(int i = 0 ; i<str.length();i++)
+    	 {
+    		 for(int j = 3;j<=str.length();j++)
+    		 {
+    			 
+    		 }
+    	 }
+    	 
+    	 
+ 	 }
+
+}

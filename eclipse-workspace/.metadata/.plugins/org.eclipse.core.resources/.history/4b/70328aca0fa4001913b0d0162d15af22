@@ -1,0 +1,31 @@
+package dp;
+
+import java.util.*;
+
+public class arithmetic_slice_ii_subsequence {
+
+	 public static void main(String[] args) {
+ 	 	 Scanner scn= new Scanner(System.in);
+ 	 	 int n=scn.nextInt();
+ 	 	 int[] A = new int[n];
+         for(int i=0;i<n;i++)
+             A[i]=scn.nextInt();
+ 	 	 System.out.print(Arithmetic_Subsequence(A));
+ 	 }
+ 	 // -----------------------------------------------------
+ 	 // This is a functional problem. Only this function has to be written.
+ 	 // This function takes as input an integer array
+ 	 // It should return the required output
+ 
+ 	 public static int Arithmetic_Subsequence(int[] A) {
+ 	 	 //Write your code here
+ 		 int count=0;
+ 		 
+ 		 
+ 		 
+ 		 
+ 		 return count;
+ 		 
+ 		 
+ 	 }
+}

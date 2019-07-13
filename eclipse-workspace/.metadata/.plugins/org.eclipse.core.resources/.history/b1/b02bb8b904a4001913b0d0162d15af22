@@ -1,0 +1,33 @@
+package dp;
+
+import java.util.*;
+
+public class russian_doll_envelopes {
+
+    public static void main(String[] args){
+        Scanner scn=new Scanner(System.in);
+        int r=scn.nextInt();
+	 	 int envelopes[][]=new int[r][2];
+	 	 for(int i=0;i<r;i++){
+            for(int j=0;j<2;j++){
+                envelopes[i][j]=scn.nextInt();
+            }
+	 	 }
+	 	 System.out.println(maxEnvelopes(envelopes));
+    }
+	 // -----------------------------------------------------
+	 // This is a functional problem. Only this function has to be written.
+	 // This function takes as an integer array
+	 // It should return the required output
+
+	 public static int maxEnvelopes(int[][] envelopes) {
+	 	 //Write your code here
+		 Arrays.sort(envelopes);
+		 for (int i = 0; i < envelopes.length; i++) {
+			System.out.println(envelopes[i][0]+" "+envelopes[i][1]);
+			
+		}
+		 
+		 return 0;
+	 }
+}

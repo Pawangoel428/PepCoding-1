@@ -1,0 +1,39 @@
+package dp;
+
+import java.util.Scanner;
+
+public class minimum_operations {
+
+	 public static void main(String[] args) {
+ 	 	 // TODO Auto-generated method stub
+ 	 	 Scanner s = new Scanner(System.in);
+             int n = s.nextInt();
+            System.out.println(minOperations(n,1));
+     }
+     	 
+ 	 // -----------------------------------------------------
+ 	 // This is a functional problem. Only this function has to be written.
+ 	 // This function takes as input an integer
+ 	 // It should print the required output
+ 
+	 static int minOperations(int m, int n) 
+	    { 
+	        if (m == n) 
+	            return 0; 
+
+	        if (m > n) 
+	            return m - n; 
+	      
+	        
+	        if (m <= 0 && n > 0) 
+	            return -1; 
+	      
+	        if (n % 2 == 1) 
+ 
+	            return 1 + minOperations(m, n + 1); 
+ 
+	        else
+
+	            return 1 + minOperations(m, n / 2); 
+	    } 
+}
